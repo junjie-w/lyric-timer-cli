@@ -1,56 +1,82 @@
 import { DEFAULT_CONFIG, DEFAULT_LYRICS } from './constants.js';
-import  { type TimerConfig, type Lyric, ConfigurationError, TimerError } from './types.js';
-import { getRandomLyric, validateConfig } from './utils.js';
+import { renderFrame, showExitMessage } from './renderer.js';
+import { getRandomLyric } from './utils.js';
+
+import type { TimerConfig, Lyric } from './types.js';
 
 const startTimer = async (
   config: TimerConfig = DEFAULT_CONFIG,
   lyrics: Lyric[] = DEFAULT_LYRICS,
-): Promise<void> => {
-  try {
-    validateConfig(config);
+): Promise<never> => {
+  let remainingSeconds = config.duration * 60;
+  let currentLyric = getRandomLyric(lyrics);
+  let lyricUpdateTime = Date.now();
+  let statusMessage = '';
+  let shouldExit = false;
 
-    let remainingSeconds = config.duration * 60;
-    const currentLyric = getRandomLyric(lyrics);
-    console.log(`\nCurrent lyric: ${currentLyric.text}`);
+  const cleanup = (): void => {
+    if (process.stdin.isTTY) {
+      process.stdin.setRawMode(false);
+    }
+    process.stdin.pause();
+    showExitMessage();
+    process.exit(0);
+  };
 
-    let shouldExit = false;
+  if (process.stdin.isTTY) {
+    process.stdin.setRawMode(true);
+  }
+  process.stdin.resume();
+  process.stdin.setEncoding('utf8');
 
-    process.on('SIGINT', () => {
-      console.log('\n\nTimer interrupted. Cleaning up...');
+  process.on('SIGINT', cleanup);
+  process.on('SIGTERM', cleanup);
+
+  const handleInput = (key: string): void => {
+    if (key === '\u0003' || key === 'q') {
       shouldExit = true;
-    });
+      cleanup();
+      return;
+    }
+    
+    if (key === ' ') {
+      config.isPaused = !config.isPaused;
+      statusMessage = config.isPaused ? '⏸ Timer paused' : '▶️ Timer resumed';
+    }
+  };
 
-    while (!shouldExit && remainingSeconds > 0) {
-      const minutes = Math.floor(remainingSeconds / 60);
-      const seconds = remainingSeconds % 60;
-      const timeDisplay = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+  process.stdin.on('data', handleInput);
+
+  while (!shouldExit) {
+    try {
+      renderFrame(remainingSeconds, currentLyric, config, statusMessage);
       
-      process.stdout.write(`\rTime remaining: ${timeDisplay}`);
-      
-      try {
-        await new Promise(resolve => setTimeout(resolve, 1000));
-      } catch (_error) {
-        throw new TimerError('Timer interrupted unexpectedly');
+      if (statusMessage) {
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        statusMessage = '';
       }
-      
-      remainingSeconds--;
-    }
 
-    if (!shouldExit) {
-      console.log('\n\nTimer completed! 🎉');
-    }
-  } catch (error) {
-    if (error instanceof ConfigurationError) {
-      console.error('\n❌ Configuration Error:', error.message);
-      process.exit(1);
-    } else if (error instanceof TimerError) {
-      console.error('\n❌ Timer Error:', error.message);
-      process.exit(2);
-    } else {
-      console.error('\n❌ Unexpected Error:', error instanceof Error ? error.message : 'Unknown error');
-      process.exit(3);
+      if (!config.isPaused) {
+        if (Date.now() - lyricUpdateTime >= config.lyricInterval * 1000) {
+          const currentIndex = lyrics.indexOf(currentLyric);
+          const nextIndex = (currentIndex + 1) % lyrics.length;
+          currentLyric = lyrics[nextIndex];
+          lyricUpdateTime = Date.now();
+        }
+
+        if (remainingSeconds > 0) {
+          remainingSeconds--;
+        }
+      }
+
+      await new Promise(resolve => setTimeout(resolve, 1000));
+    } catch (error) {
+      console.error('Error in timer loop:', error);
+      cleanup();
     }
   }
+
+  return Promise.resolve() as Promise<never>;
 };
 
-export { startTimer, TimerError, ConfigurationError };
+export { startTimer };

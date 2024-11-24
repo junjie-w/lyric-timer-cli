@@ -7,9 +7,12 @@
     "lyric-timer": "./dist/index.js"
   },
   "scripts": {
-    "start": "tsx src/index.ts",
-    "dev": "tsx watch src/index.ts",
+    "dev": "tsx --watch-preserve-output src/index.ts",
     "build": "tsc",
+    "start": "node dist/index.js",
+    "start:build": "npm run build && npm start",
+    "clean": "rm -rf dist",
+    "prebuild": "npm run clean",
     "lint": "eslint . --fix",
     "lint:check": "eslint .",
     "check-types": "tsc --noEmit",
