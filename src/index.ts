@@ -1,24 +1,34 @@
 import chalk from 'chalk';
 
-import { DEFAULT_CONFIG } from './constants.js';
+import { getTimerConfig } from './cli.js';
 import { startTimer } from './timer.js';
 
-console.log(chalk.blue('\n🎵 LyricTimer'));
-console.log(chalk.dim('✨ A gentle companion for your focus time 🌟\n'));
+const main = async (): Promise<void> => {
+  try {
+    const config = await getTimerConfig();
+    
+    console.log('\nControls:');
+    console.log(chalk.dim('• Space: Pause/Resume'));
+    console.log(chalk.dim('• q: Quit\n'));
 
-console.log('Timer Settings:');
-console.log(chalk.dim(`• Duration: ${DEFAULT_CONFIG.duration} minutes`));
-console.log(chalk.dim(`• Lyrics Interval: ${DEFAULT_CONFIG.lyricInterval} seconds\n`));
-
-console.log('Controls:');
-console.log(chalk.dim('• Space: Pause/Resume'));
-console.log(chalk.dim('• q: Quit\n'));
-
-await new Promise(resolve => setTimeout(resolve, 2000));
-
-startTimer(DEFAULT_CONFIG).catch(console.error);
+    await startTimer(config);
+  } catch (error) {
+    console.error(chalk.red('\nAn unexpected error occurred:', error));
+    process.exit(1);
+  }
+};
 
 process.on('uncaughtException', (error) => {
-  console.error(chalk.red('An unexpected error occurred:', error));
+  console.error(chalk.red('\nAn unexpected error occurred:', error));
+  process.exit(1);
+});
+
+process.on('unhandledRejection', (error) => {
+  console.error(chalk.red('\nUnhandled promise rejection:', error));
+  process.exit(1);
+});
+
+main().catch((error) => {
+  console.error(chalk.red('\nFatal error:', error));
   process.exit(1);
 });

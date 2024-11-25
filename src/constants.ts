@@ -2,12 +2,13 @@ import type { Lyric } from './types.js';
 
 export const DEFAULT_CONFIG = {
   duration: 25,
-  lyricInterval: 60,
+  lyricInterval: 15,
   isPaused: false,
 };
 
 export const SEPARATOR = '· · · · · · · · · · · · · · ·';
 export const TIME_SEPARATOR = '✧ · · · · · ·';
+export const SETTINGS_SEPARATOR = '┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄';
 
 export const DEFAULT_LYRICS: Lyric[] = [
   {
