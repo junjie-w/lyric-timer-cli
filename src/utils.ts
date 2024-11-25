@@ -1,6 +1,6 @@
 import { cursorTo } from 'node:readline';
 
-import { ConfigurationError, type Lyric, type TimerConfig } from './types.js';
+import type { Lyric } from './types.js';
 
 export const formatTime = (timeInSeconds: number): string => {
   const minutes = Math.floor(timeInSeconds / 60);
@@ -27,13 +27,4 @@ export const rightAlign = (text: string, width: number, rightPadding: number = 3
 export const clearScreen = (): void => {
   console.clear();
   cursorTo(process.stdout, 0, 0);
-};
-
-export const validateConfig = (config: TimerConfig): void => {
-  if (config.duration <= 0) {
-    throw new ConfigurationError('Timer duration must be greater than 0');
-  }
-  if (config.lyricInterval <= 0) {
-    throw new ConfigurationError('Lyric interval must be greater than 0');
-  }
 };

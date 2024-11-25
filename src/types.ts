@@ -9,17 +9,3 @@ export interface TimerConfig {
   lyricInterval: number;
   isPaused: boolean;
 }
-
-export class TimerError extends Error {
-  constructor(message: string) {
-    super(message);
-    this.name = 'TimerError';
-  }
-}
-
-export class ConfigurationError extends Error {
-  constructor(message: string) {
-    super(message);
-    this.name = 'ConfigurationError';
-  }
-}
