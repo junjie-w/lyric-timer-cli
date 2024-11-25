@@ -7,7 +7,8 @@ export const DEFAULT_CONFIG = {
 };
 
 export const SEPARATOR = '· · · · · · · · · · · · · · ·';
-export const TIME_SEPARATOR = '✧ · · · · · ·';
+export const TIME_SEPARATOR_TOP = '✧ · · · · · ·';
+export const TIME_SEPARATOR_BOTTOM = '· · · · · · ✧';
 export const SETTINGS_SEPARATOR = '┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄';
 
 export const DEFAULT_LYRICS: Lyric[] = [

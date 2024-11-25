@@ -1,6 +1,6 @@
 import chalk from 'chalk';
 
-import { SEPARATOR, TIME_SEPARATOR } from './constants.js';
+import { SEPARATOR, TIME_SEPARATOR_TOP, TIME_SEPARATOR_BOTTOM } from './constants.js';
 import { clearScreen, rightAlign, formatTime } from './utils.js';
 
 import type { Lyric, TimerConfig } from './types.js';
@@ -15,6 +15,7 @@ export const renderFrame = (
     
   const consoleWidth = process.stdout.columns || 80;
 
+  console.log('');
   console.log(chalk.blue('🎵 LyricTimer'));
   console.log(chalk.dim('✨ A gentle companion for your focus time 🌟'));
   console.log('');
@@ -24,16 +25,23 @@ export const renderFrame = (
   console.log(rightAlign(chalk.dim(`   ~ ${currentLyric.artist}, ${currentLyric.year}`), consoleWidth));
   console.log(rightAlign(chalk.dim(SEPARATOR), consoleWidth));
 
-  console.log(chalk.dim(TIME_SEPARATOR));
-  console.log(chalk.cyan(formatTime(remainingSeconds)));
-  console.log(chalk.dim(TIME_SEPARATOR));
+  const formattedTime = formatTime(remainingSeconds);
+  const separatorLength = TIME_SEPARATOR_TOP.length;
+  const timeOffset = Math.floor((separatorLength - formattedTime.length) / 2);
+
+  console.log(chalk.dim(TIME_SEPARATOR_TOP));
+  console.log(
+    chalk.dim(' '.repeat(timeOffset)) + 
+    chalk.cyan(formattedTime) + 
+    chalk.dim(' '.repeat(timeOffset)),
+  );
+  console.log(chalk.dim(TIME_SEPARATOR_BOTTOM));
   console.log('');
 
-  if (config.isPaused) {
-    console.log(chalk.green('⏸  Timer paused...'));
-  }
   if (message) {
     console.log(chalk.dim(message));
+  } else if (config.isPaused) {
+    console.log(chalk.green('⏸  Timer paused...'));
   }
 };
 

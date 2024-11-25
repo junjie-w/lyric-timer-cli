@@ -1,3 +1,5 @@
+import chalk from 'chalk';
+
 import { DEFAULT_CONFIG, DEFAULT_LYRICS } from './constants.js';
 import { renderFrame, showExitMessage } from './renderer.js';
 import { getRandomLyric } from './utils.js';
@@ -41,7 +43,7 @@ const startTimer = async (
     
     if (key === ' ') {
       config.isPaused = !config.isPaused;
-      statusMessage = config.isPaused ? '⏸ Timer paused' : '▶️ Timer resumed';
+      statusMessage = config.isPaused ? '⏸  Timer paused...' : '▶️  Timer resumed!';
     }
   };
 
@@ -66,6 +68,12 @@ const startTimer = async (
 
         if (remainingSeconds > 0) {
           remainingSeconds--;
+        } else {
+          console.clear();
+          console.log(chalk.green('\n✨ Timer completed! Great work!\n'));
+          await new Promise(resolve => setTimeout(resolve, 1500));
+          cleanup();
+          process.exit(0);
         }
       }
 
