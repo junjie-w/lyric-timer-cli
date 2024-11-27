@@ -9,6 +9,7 @@ import type { TimerConfig, Lyric } from './types.js';
 const startTimer = async (
   config: TimerConfig = DEFAULT_CONFIG,
   lyrics: Lyric[] = DEFAULT_LYRICS,
+  testMode = false,
 ): Promise<never> => {
   let remainingSeconds = config.duration * 60;
   let currentLyric = getRandomLyric(lyrics);
@@ -22,7 +23,9 @@ const startTimer = async (
     }
     process.stdin.pause();
     showExitMessage();
-    process.exit(0);
+    if (!testMode) {
+      process.exit(0);
+    }
   };
 
   if (process.stdin.isTTY) {
@@ -60,9 +63,7 @@ const startTimer = async (
 
       if (!config.isPaused) {
         if (Date.now() - lyricUpdateTime >= config.lyricInterval * 1000) {
-          const currentIndex = lyrics.indexOf(currentLyric);
-          const nextIndex = (currentIndex + 1) % lyrics.length;
-          currentLyric = lyrics[nextIndex];
+          currentLyric = getRandomLyric(lyrics, currentLyric);
           lyricUpdateTime = Date.now();
         }
 
@@ -73,7 +74,11 @@ const startTimer = async (
           console.log(chalk.green('\n✨ Timer completed! Great work!\n'));
           await new Promise(resolve => setTimeout(resolve, 1500));
           cleanup();
-          process.exit(0);
+          if (!testMode) {
+            process.exit(0);
+          }
+          shouldExit = true;
+          break;
         }
       }
 
@@ -81,6 +86,10 @@ const startTimer = async (
     } catch (error) {
       console.error('Error in timer loop:', error);
       cleanup();
+      if (!testMode) {
+        process.exit(1);
+      }
+      throw error;
     }
   }
 

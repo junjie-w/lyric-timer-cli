@@ -13,6 +13,11 @@
     "start:build": "npm run build && npm start",
     "clean": "rm -rf dist",
     "prebuild": "npm run clean",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:watch": "vitest watch",
+    "test:coverage": "vitest run --coverage",
+    "test:ui": "vitest --ui",
     "lint": "eslint . --fix",
     "lint:check": "eslint .",
     "check-types": "tsc --noEmit",
@@ -41,6 +46,7 @@
     "@types/node": "^22.9.3",
     "@types/yargs": "^17.0.32",
     "@typescript-eslint/eslint-plugin": "^8.10.0",
+    "@vitest/coverage-v8": "^2.1.6",
     "eslint": "^9.10.0",
     "eslint-plugin-import": "^2.30.0",
     "globals": "^14.0.0",
@@ -48,6 +54,7 @@
     "jsonc-eslint-parser": "^2.4.0",
     "lint-staged": "^15.2.10",
     "tsx": "^4.19.2",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.6"
   }
 }
