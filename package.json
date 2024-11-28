@@ -15,12 +15,11 @@
     "prebuild": "npm run clean",
     "test": "vitest",
     "test:run": "vitest run",
-    "test:watch": "vitest watch",
     "test:coverage": "vitest run --coverage",
     "test:ui": "vitest --ui",
     "lint": "eslint . --fix",
     "lint:check": "eslint .",
-    "check-types": "tsc --noEmit",
+    "type-check": "tsc --noEmit",
     "prepublishOnly": "npm run build",
     "prepare": "husky"
   },
