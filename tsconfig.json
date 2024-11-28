@@ -5,7 +5,7 @@
     "moduleResolution": "NodeNext",
     "esModuleInterop": true,
     "outDir": "./dist",
-    "rootDir": "./src",
+    "rootDir": ".",
     "strict": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
@@ -19,7 +19,8 @@
     "*.json"
   ],
   "exclude": [
-    "node_modules",
-    "dist"
+    "node_modules", 
+    "dist", 
+    "coverage"
   ]
 }

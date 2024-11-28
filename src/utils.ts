@@ -2,12 +2,6 @@ import { cursorTo } from 'node:readline';
 
 import type { Lyric } from './types.js';
 
-export const formatTime = (timeInSeconds: number): string => {
-  const minutes = Math.floor(timeInSeconds / 60);
-  const seconds = timeInSeconds % 60;
-  return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-};
-
 export const getRandomLyric = (lyrics: Lyric[], currentLyric?: Lyric): Lyric => {
   let newLyric;
   do {
@@ -22,6 +16,13 @@ export const rightAlign = (text: string, width: number, rightPadding: number = 3
     const effectiveWidth = width - rightPadding;
     return ' '.repeat(Math.max(0, effectiveWidth - line.length)) + line + ' '.repeat(rightPadding);
   }).join('\n');
+};
+
+export const formatTime = (timeInSeconds: number): string => {
+  const seconds = Math.max(0, timeInSeconds);
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = seconds % 60;
+  return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
 };
 
 export const clearScreen = (): void => {
