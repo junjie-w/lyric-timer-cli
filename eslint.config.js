@@ -7,10 +7,17 @@ import globals from 'globals';
 export default [
   js.configs.recommended,
   {
-    ignores: ['dist/*', 'node_modules/*', '.lintstagedrc.js'],
+    ignores: [
+      'dist/*',
+      'node_modules/*',
+      'coverage/*',
+      '.lintstagedrc.js',
+      'commitlint.config.js',
+      'vitest.config.ts',
+    ],
   },
   {
-    files: ['**/*.{js,ts}'],
+    files: ['**/*.ts'],
     languageOptions: {
       ecmaVersion: 2024,
       sourceType: 'module',
@@ -61,6 +68,58 @@ export default [
         array: false,
         object: true,
       }],
+      'prefer-template': 'error',
+      'no-var': 'error',
+      'import/order': ['error', {
+        groups: [
+          'builtin',
+          'external',
+          'internal',
+          ['parent', 'sibling'],
+          'index',
+          'type',
+        ],
+        'newlines-between': 'always',
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: true,
+        },
+      }],
+      'curly': ['error', 'all'],
+      'eqeqeq': ['error', 'always'],
+    },
+  },
+  {
+    files: ['**/*.js'],
+    languageOptions: {
+      ecmaVersion: 2024,
+      sourceType: 'module',
+      globals: {
+        ...globals.node,
+      },
+    },
+    plugins: {
+      'import': importPlugin,
+    },
+    rules: {
+      'indent': ['error', 2],
+      'linebreak-style': ['error', 'unix'],
+      'quotes': ['error', 'single'],
+      'semi': ['error', 'always'],
+      'comma-dangle': ['error', 'always-multiline'],
+      'max-len': ['error', { 
+        code: 120,
+        ignoreUrls: true,
+        ignoreStrings: true,
+        ignoreTemplateLiterals: true,
+        ignoreRegExpLiterals: true,
+      }],
+      'no-multiple-empty-lines': ['error', { max: 1 }],
+      'eol-last': ['error', 'always'],
+      'no-console': 'off',
+      'arrow-body-style': ['error', 'as-needed'],
+      'prefer-arrow-callback': 'error',
+      'prefer-const': 'error',
       'prefer-template': 'error',
       'no-var': 'error',
       'import/order': ['error', {
