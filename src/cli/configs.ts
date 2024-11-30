@@ -1,8 +1,8 @@
 import { intro, outro, select, text, isCancel, note, confirm } from '@clack/prompts';
 
-import { DEFAULT_CONFIG, SETTINGS_SEPARATOR } from './constants.js';
+import { DEFAULT_CONFIG, SETTINGS_SEPARATOR } from '../core/constants.js';
 
-import type { TimerConfig } from './types.js';
+import type { TimerConfig } from '../core/types.js';
 
 type DurationOption = 25 | 45 | 60 | 'custom';
 type IntervalOption = 15 | 30 | 60 | 'custom';

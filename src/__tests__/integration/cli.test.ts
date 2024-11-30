@@ -1,8 +1,8 @@
 import * as clackPrompts from '@clack/prompts';
 import { describe, it, expect, vi, beforeEach, afterAll } from 'vitest';
 
-import { getTimerConfig } from '../../cli.js';
-import { DEFAULT_CONFIG } from '../../constants.js';
+import { getTimerConfig } from '../../cli/configs.js';
+import { DEFAULT_CONFIG } from '../../core/constants.js';
 
 interface TextOptions {
   message: string;

@@ -10,10 +10,13 @@ export default defineConfig({
       exclude: [
         'node_modules/**',
         'src/__tests__/**',
-        'src/types.ts',
-        'src/constants.ts',
+        'src/core/types.ts',
+        'src/core/constants.ts',
+        'src/core/index.ts',
+        'src/core/renderer.ts',
         'src/index.ts',
-        'src/renderer.ts',
+        'src/cli/index.ts',
+        'src/bin/lyric-timer.ts',
       ],
       thresholds: {
         branches: 80,

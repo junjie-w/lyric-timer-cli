@@ -2,12 +2,12 @@ import { ReadStream } from 'node:tty';
 
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 
-import { DEFAULT_LYRICS } from '../../constants.js';
-import * as renderer from '../../renderer.js';
-import { startTimer } from '../../timer.js';
+import { DEFAULT_LYRICS } from '../../core/constants.js';
+import * as renderer from '../../core/renderer.js';
+import { startTimer } from '../../core/timer.js';
 
-vi.mock('../../renderer.js', () => ({
-  renderFrame: vi.fn(),
+vi.mock('../../core/renderer.js', () => ({
+  renderTimer: vi.fn(),
   showExitMessage: vi.fn(),
 }));
 
@@ -23,7 +23,7 @@ describe('Timer Operation', () => {
   });
 
   it('initializes timer correctly', async () => {
-    const mockRenderFrame = vi.mocked(renderer.renderFrame);
+    const mockRenderFrame = vi.mocked(renderer.renderTimer);
     const config = {
       duration: 1,
       lyricInterval: 30,
@@ -40,7 +40,7 @@ describe('Timer Operation', () => {
   });
   
   it('counts down when not paused', async () => {
-    const mockRenderFrame = vi.mocked(renderer.renderFrame);
+    const mockRenderFrame = vi.mocked(renderer.renderTimer);
     const config = {
       duration: 1,
       lyricInterval: 30,
@@ -60,7 +60,7 @@ describe('Timer Operation', () => {
   });
 
   it('stays paused when isPaused is true', async () => {
-    const mockRenderFrame = vi.mocked(renderer.renderFrame);
+    const mockRenderFrame = vi.mocked(renderer.renderTimer);
     const config = {
       duration: 1,
       lyricInterval: 30,
@@ -112,7 +112,7 @@ describe('Timer Operation', () => {
   });
 
   it('updates lyrics at correct interval', async () => {
-    const mockRenderFrame = vi.mocked(renderer.renderFrame);
+    const mockRenderFrame = vi.mocked(renderer.renderTimer);
     const config = {
       duration: 1,
       lyricInterval: 2,
@@ -120,7 +120,7 @@ describe('Timer Operation', () => {
     };
 
     startTimer(config, DEFAULT_LYRICS);
-    const calls: Array<Parameters<typeof renderer.renderFrame>> = [];
+    const calls: Array<Parameters<typeof renderer.renderTimer>> = [];
     
     mockRenderFrame.mockImplementation((...args) => {
       calls.push(args);
@@ -134,7 +134,7 @@ describe('Timer Operation', () => {
 
   it('handles error in timer loop', async () => {
     const mockShowExitMessage = vi.mocked(renderer.showExitMessage);
-    const mockRenderFrame = vi.mocked(renderer.renderFrame);
+    const mockRenderFrame = vi.mocked(renderer.renderTimer);
     
     mockRenderFrame.mockImplementationOnce(() => {
       throw new Error('Test error');

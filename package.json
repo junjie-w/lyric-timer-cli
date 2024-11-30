@@ -3,13 +3,15 @@
   "version": "1.0.0",
   "description": "A gentle focus timer with lyrics for your terminal",
   "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "bin": {
-    "lyric-timer": "./dist/index.js"
+    "lyric-timer": "./dist/bin/lyric-timer.js" 
   },
   "scripts": {
-    "dev": "tsx --watch-preserve-output src/index.ts",
+    "dev": "tsx --watch-preserve-output src/cli/index.ts",
     "build": "tsc",
-    "start": "node dist/index.js",
+    "start": "node dist/src/cli/index.js",
     "start:build": "npm run build && npm start",
     "clean": "rm -rf dist",
     "prebuild": "npm run clean",

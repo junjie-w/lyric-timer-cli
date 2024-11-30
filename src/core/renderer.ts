@@ -5,7 +5,7 @@ import { clearScreen, rightAlign, formatTime } from './utils.js';
 
 import type { Lyric, TimerConfig } from './types.js';
 
-export const renderFrame = (
+export const renderTimer = (
   remainingSeconds: number,
   currentLyric: Lyric,
   config: TimerConfig,
@@ -17,7 +17,7 @@ export const renderFrame = (
 
   console.log('');
   console.log(chalk.blue('🎵 LyricTimer'));
-  console.log(chalk.dim('✨ A gentle companion for your focus time 🌟'));
+  console.log(chalk.dim('✨ Your mindful moment starts now 🌟'));
   console.log('');
 
   console.log(rightAlign(chalk.dim(SEPARATOR), consoleWidth));
@@ -48,8 +48,8 @@ export const renderFrame = (
 export const showExitMessage = (): void => {
   console.clear();
   console.log(chalk.blue('\n🌟 Thank you for using LyricTimer'));
-  console.log(chalk.dim('May your thoughts be clear and your heart be light'));
-  console.log(chalk.dim('Until we meet again...'));
-  console.log(chalk.dim('\nTime spent focusing is never wasted ✨\n'));
+  console.log(chalk.dim('Every focused second shapes your story'));
+  console.log(chalk.dim('Your dedication lights up the world'));
+  console.log(chalk.dim('\nSee you on your next adventure ✨\n'));
   process.exit(0);
 };
