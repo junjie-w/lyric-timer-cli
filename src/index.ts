@@ -1,34 +1,17 @@
-import chalk from 'chalk';
+import { startTimer } from './core/timer.js';
 
-import { getTimerConfig } from './cli.js';
-import { startTimer } from './timer.js';
-
-const main = async (): Promise<void> => {
-  try {
-    const config = await getTimerConfig();
-    
-    console.log('\nControls:');
-    console.log(chalk.dim('• Space: Pause/Resume'));
-    console.log(chalk.dim('• q: Quit\n'));
-
-    await startTimer(config);
-  } catch (error) {
-    console.error(chalk.red('\nAn unexpected error occurred:', error));
-    process.exit(1);
-  }
+export const createTimer = async (options: {
+  duration?: number;
+  lyricInterval?: number;
+}): Promise<void> => {
+  const config = {
+    duration: options.duration || 25,
+    lyricInterval: options.lyricInterval || 30,
+    isPaused: false,
+  };
+  
+  return startTimer(config);
 };
 
-process.on('uncaughtException', (error) => {
-  console.error(chalk.red('\nAn unexpected error occurred:', error));
-  process.exit(1);
-});
-
-process.on('unhandledRejection', (error) => {
-  console.error(chalk.red('\nUnhandled promise rejection:', error));
-  process.exit(1);
-});
-
-main().catch((error) => {
-  console.error(chalk.red('\nFatal error:', error));
-  process.exit(1);
-});
+export { startTimer } from './core/timer.js';
+export type { TimerConfig, Lyric } from './core/types.js';

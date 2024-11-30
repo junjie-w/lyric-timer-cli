@@ -1,12 +1,12 @@
 import chalk from 'chalk';
 
 import { DEFAULT_CONFIG, DEFAULT_LYRICS } from './constants.js';
-import { renderFrame, showExitMessage } from './renderer.js';
+import { renderTimer, showExitMessage } from './renderer.js';
 import { getRandomLyric } from './utils.js';
 
 import type { TimerConfig, Lyric } from './types.js';
 
-const startTimer = async (
+export const startTimer = async (
   config: TimerConfig = DEFAULT_CONFIG,
   lyrics: Lyric[] = DEFAULT_LYRICS,
   testMode = false,
@@ -54,7 +54,7 @@ const startTimer = async (
 
   while (!shouldExit) {
     try {
-      renderFrame(remainingSeconds, currentLyric, config, statusMessage);
+      renderTimer(remainingSeconds, currentLyric, config, statusMessage);
       
       if (statusMessage) {
         await new Promise(resolve => setTimeout(resolve, 2000));
@@ -95,5 +95,3 @@ const startTimer = async (
 
   return Promise.resolve() as Promise<never>;
 };
-
-export { startTimer };

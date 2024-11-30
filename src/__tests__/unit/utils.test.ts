@@ -1,8 +1,8 @@
 import { describe, it, expect, vi } from 'vitest';
 
-import { formatTime, getRandomLyric, rightAlign } from '../../utils.js';
+import { formatTime, getRandomLyric, rightAlign } from '../../core/utils.js';
 
-import type { Lyric } from '../../types.js';
+import type { Lyric } from '../../core/types.js';
 
 vi.mock('node:readline', () => ({
   cursorTo: vi.fn(),
@@ -79,7 +79,7 @@ describe('rightAlign', () => {
 
 describe('clearScreen', () => {
   it('clears screen and resets cursor', async () => {
-    const { clearScreen } = await import('../../utils.js');
+    const { clearScreen } = await import('../../core/utils.js');
     const consoleSpy = vi.spyOn(console, 'clear').mockImplementation(() => {});
     
     clearScreen();
