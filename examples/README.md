@@ -26,6 +26,12 @@ This demonstrates:
 - Interactive CLI interface
 - Default settings
 
+## Executable Usage
+Try the standalone executable version:
+
+```bash
+npm run start:exe
+
 ## Try It Out
 
 ```bash
