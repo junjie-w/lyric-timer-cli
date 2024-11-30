@@ -8,7 +8,7 @@
   "main": "./dist/src/index.js",
   "types": "./dist/src/index.d.ts",
   "bin": {
-    "lyric-timer": "./dist/src/bin/lyric-timer.js" 
+    "lyric-timer": "./dist/src/bin/lyric-timer.js"
   },
   "files": [
     "dist",
@@ -47,7 +47,10 @@
     "docker:rm": "docker rm -f lyric-timer || true",
     "docker:clean": "npm run docker:rm && npm run docker:rmi",
     "prepublishOnly": "npm run build",
-    "prepare": "husky"
+    "prepare": "husky",
+    "build:exe": "ncc build src/bin/lyric-timer.ts -o executables --minify",
+    "build:executables": "npm run build:exe && npm run compress:executables",
+    "compress:executables": "node scripts/compress-executables.js"
   },
   "keywords": [
     "cli",
@@ -71,6 +74,7 @@
     "@types/node": "^22.9.3",
     "@types/yargs": "^17.0.32",
     "@typescript-eslint/eslint-plugin": "^8.10.0",
+    "@vercel/ncc": "^0.38.3",
     "@vitest/coverage-v8": "^2.1.6",
     "eslint": "^9.10.0",
     "eslint-plugin-import": "^2.30.0",

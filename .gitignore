@@ -4,6 +4,7 @@ node_modules/
 # Build output
 dist/
 build/
+executables/
 
 # IDE and editor files
 .idea/
