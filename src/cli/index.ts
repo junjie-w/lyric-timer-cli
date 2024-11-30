@@ -28,7 +28,10 @@ process.on('unhandledRejection', (error) => {
   process.exit(1);
 });
 
-main().catch((error) => {
-  console.error(chalk.red('\nFatal error:', error));
-  process.exit(1);
-});
+if (process.argv[1]?.endsWith('cli/index.ts') || 
+    process.argv[1]?.endsWith('cli/index.js')) {
+  main().catch((error) => {
+    console.error(chalk.red('\nFatal error:', error));
+    process.exit(1);
+  });
+}

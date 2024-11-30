@@ -1,12 +1,29 @@
 {
-  "name": "lyric-timer-cli",
+  "name": "@junjie-wu/lyric-timer-cli",
   "version": "1.0.0",
   "description": "A gentle focus timer with lyrics for your terminal",
+  "author": "Junjie Wu",
+  "license": "MIT",
   "type": "module",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/src/index.js",
+  "types": "./dist/src/index.d.ts",
   "bin": {
-    "lyric-timer": "./dist/bin/lyric-timer.js" 
+    "lyric-timer": "./dist/src/bin/lyric-timer.js" 
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/junjie-w/lyric-timer-cli.git"
+  },
+  "homepage": "https://github.com/junjie-w/lyric-timer-cli#readme",
+  "bugs": {
+    "url": "https://github.com/junjie-w/lyric-timer-cli/issues"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "scripts": {
     "dev": "tsx --watch-preserve-output src/cli/index.ts",
@@ -22,6 +39,13 @@
     "lint": "eslint . --fix",
     "lint:check": "eslint .",
     "type-check": "tsc --noEmit",
+    "docker:build": "docker build -t lyric-timer .",
+    "docker:run": "docker run -it --name lyric-timer -e TERM=xterm-256color lyric-timer",
+    "docker:stop": "docker stop lyric-timer || true",
+    "docker:logs": "docker logs lyric-timer",
+    "docker:rmi": "docker rmi lyric-timer || true",
+    "docker:rm": "docker rm -f lyric-timer || true",
+    "docker:clean": "npm run docker:rm && npm run docker:rmi",
     "prepublishOnly": "npm run build",
     "prepare": "husky"
   },
@@ -33,8 +57,6 @@
     "lyrics",
     "pomodoro"
   ],
-  "author": "Junjie Wu",
-  "license": "MIT",
   "dependencies": {
     "@clack/prompts": "^0.8.2",
     "chalk": "^5.3.0"
