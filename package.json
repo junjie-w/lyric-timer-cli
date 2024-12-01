@@ -8,7 +8,7 @@
   "main": "./dist/src/index.js",
   "types": "./dist/src/index.d.ts",
   "bin": {
-    "lyric-timer": "./dist/src/bin/lyric-timer.js"
+    "lyric-timer": "dist/src/bin/lyric-timer.js"
   },
   "files": [
     "dist",
@@ -16,7 +16,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/junjie-w/lyric-timer-cli.git"
+    "url": "git+https://github.com/junjie-w/lyric-timer-cli.git"
   },
   "homepage": "https://github.com/junjie-w/lyric-timer-cli#readme",
   "bugs": {
