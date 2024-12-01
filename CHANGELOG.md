@@ -1,3 +1,12 @@
+## [1.2.1](https://github.com/junjie-w/lyric-timer-cli/compare/v1.2.0...v1.2.1) (2024-12-01)
+
+
+### Bug Fixes
+
+* correct docker image name ([5a2465c](https://github.com/junjie-w/lyric-timer-cli/commit/5a2465c80a710f851d5d45fb8a645bb399fa515c))
+* update executable docs ([d4cc68d](https://github.com/junjie-w/lyric-timer-cli/commit/d4cc68d6375e82914bf18eac1a37208dae935caf))
+* update package description ([48316c0](https://github.com/junjie-w/lyric-timer-cli/commit/48316c074fdcbae882a656126a24423d9da1120c))
+
 # [1.2.0](https://github.com/junjie-w/lyric-timer-cli/compare/v1.1.1...v1.2.0) (2024-12-01)
 
 
