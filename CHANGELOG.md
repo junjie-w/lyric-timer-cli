@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/junjie-w/lyric-timer-cli/compare/v1.1.0...v1.1.1) (2024-12-01)
+
+
+### Bug Fixes
+
+* ensure full git history and latest commits are fetched ([65e0909](https://github.com/junjie-w/lyric-timer-cli/commit/65e09099a6a4c1add4b0847fd342aa0fefdf8077))
+
 # [1.1.0](https://github.com/junjie-w/lyric-timer-cli/compare/v1.0.0...v1.1.0) (2024-12-01)
 
 
