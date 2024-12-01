@@ -4,7 +4,6 @@
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/junjie-w/lyric-timer-cli)
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/junjie-w/lyric-timer-cli/quality-checks.yml)
 ![Node.js](https://img.shields.io/badge/Node.js->=20-brightgreen)
-[![codecov](https://codecov.io/gh/junjie-w/lyric-timer-cli/branch/main/graph/badge.svg)](https://codecov.io/gh/junjie-w/lyric-timer-cli)
 [![semantic-release](https://img.shields.io/badge/semantic--release-enabled-brightgreen?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
 ![ESLint](https://img.shields.io/badge/ESLint-enabled-brightgreen)
 ![Husky](https://img.shields.io/badge/Husky-enabled-brightgreen)
