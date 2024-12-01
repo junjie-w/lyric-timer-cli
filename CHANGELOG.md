@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/junjie-w/lyric-timer-cli/compare/v1.2.1...v1.2.2) (2024-12-01)
+
+
+### Bug Fixes
+
+* update docs ([2f3bd37](https://github.com/junjie-w/lyric-timer-cli/commit/2f3bd37abd1640b60e80b295740697dd988f443a))
+
 ## [1.2.1](https://github.com/junjie-w/lyric-timer-cli/compare/v1.2.0...v1.2.1) (2024-12-01)
 
 
