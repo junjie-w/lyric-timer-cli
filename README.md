@@ -1,12 +1,12 @@
 # LyricTimer CLI
 
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/junjie-w/lyric-timer-cli/ci.yml)
+[![Clack](https://img.shields.io/badge/@clack-CLI_Prompts-black)](https://github.com/natemoo-re/clack)
+[![Chalk](https://img.shields.io/badge/Chalk-CLI_Styling-pink?logo=node.js)](https://github.com/chalk/chalk)
 ![Vitest](https://img.shields.io/badge/Vitest-enabled-brightgreen?logo=vitest)
 [![semantic-release](https://img.shields.io/badge/semantic--release-enabled-brightgreen?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
 ![ESLint](https://img.shields.io/badge/ESLint-enabled-brightgreen)
 ![Husky](https://img.shields.io/badge/Husky-enabled-brightgreen)
-[![Chalk](https://img.shields.io/badge/Chalk-CLI_Styling-pink?logo=node.js)](https://github.com/chalk/chalk)
-[![Clack](https://img.shields.io/badge/@clack-CLI_Prompts-black)](https://github.com/natemoo-re/clack)
 
 A command-line focus timer, available as a [Docker image](https://hub.docker.com/r/junjiewu0/lyric-timer-cli) for containerized usage, an [NPM package](https://www.npmjs.com/package/@junjie-wu/lyric-timer-cli) for both CLI usage and library integration, and as platform-specific executables.
 
@@ -121,10 +121,10 @@ npm run start:exe     # Executable usage
 
 ### Configuration Options
 
-| Option | Type | Default |
-|----------|--------|-------------|
-| `duration` | number | 25 |
-| `lyricInterval` | number | 15 |
+| Option | Type | Default | Description |
+|----------|--------|-------------| ------------|
+| `duration` | number | 25 | Timer duration in minutes |
+| `lyricInterval` | number | 15 | Interval between lyric changes in seconds |
 
 ## 🛠️ Development 
 
@@ -153,7 +153,7 @@ Contributions, issues, and feature requests are welcome. Feel free to check [iss
 
 - NPM Registry: [@junjie-wu/lyric-timer-cli](https://www.npmjs.com/package/@junjie-wu/lyric-timer-cli)
 - Docker Hub: [junjiewu0/lyric-timer-cli](https://hub.docker.com/r/junjiewu0/lyric-timer-cli)
-- Standalone executables are available in the [releases](https://github.com/junjie-w/lyric-timer-cli/releases) page
+- Platform-specific executables (see [Executables](https://github.com/junjie-w/lyric-timer-cli/tree/main?tab=readme-ov-file#-executables))
 
 ## 📄 License
 

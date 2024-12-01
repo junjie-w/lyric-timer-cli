@@ -22,7 +22,7 @@ const runDocker = (platformFlag = '') => {
   console.log('1. Pulling Docker image...');
   execSync(`docker pull ${platformFlag}${IMAGE_NAME}:${IMAGE_TAG}`, { stdio: 'inherit' });
 
-  console.log('\n2. Starting timer in container...');
+  console.log('\n2. Starting LyricTimer in container...');
   execSync(`docker run ${platformFlag}-it --rm --name ${CONTAINER_NAME} ${IMAGE_NAME}:${IMAGE_TAG}`, {
     stdio: 'inherit',
   });

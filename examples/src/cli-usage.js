@@ -7,7 +7,7 @@ Starting LyricTimer using npx...
 `);
 
 try {
-  console.log('\nRunning timer with default settings...\n');
+  console.log('\nRunning LyricTimer with default settings...\n');
   
   execSync('npx @junjie-wu/lyric-timer-cli', {
     stdio: 'inherit',
