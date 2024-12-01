@@ -5,10 +5,10 @@
   "scripts": {
     "start:lib": "node src/library-usage.js",
     "start:cli": "node src/cli-usage.js",
+    "start:exe": "node src/executable-usage.js",
     "start:docker": "node src/docker-usage.js",
     "logs:docker": "docker logs lyric-timer-example || true",
-    "clean:docker": "docker rmi junjiewu0/lyric-timer:latest || true",
-    "start:exe": "node src/executable-usage.js"
+    "clean:docker": "docker rmi junjiewu0/lyric-timer:latest || true"
   },
   "dependencies": {
     "@junjie-wu/lyric-timer-cli": "file:../"
