@@ -1,6 +1,6 @@
 import { execSync } from 'child_process';
 
-const IMAGE_NAME = 'junjiewu0/lyric-timer';
+const IMAGE_NAME = 'junjiewu0/lyric-timer-cli';
 const IMAGE_TAG = 'latest';
 const CONTAINER_NAME = 'lyric-timer-example';
 

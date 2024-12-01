@@ -1,4 +1,5 @@
 import { intro, outro, select, text, isCancel, note, confirm } from '@clack/prompts';
+import chalk from 'chalk';
 
 import { DEFAULT_CONFIG, SETTINGS_SEPARATOR } from '../core/constants.js';
 
@@ -8,7 +9,7 @@ type DurationOption = 25 | 45 | 60 | 'custom';
 type IntervalOption = 15 | 30 | 60 | 'custom';
 
 export const getTimerConfig = async (): Promise<TimerConfig> => {
-  intro('🎵 Welcome to LyricTimer');
+  intro(chalk.blue('🎵 Welcome to LyricTimer'));
 
   const formatDuration = (minutes: number): string => `${minutes} ${minutes === 1 ? 'minute' : 'minutes'}`;
   
@@ -28,20 +29,25 @@ export const getTimerConfig = async (): Promise<TimerConfig> => {
       Using default settings:
       • Duration: ${formatDuration(DEFAULT_CONFIG.duration)}
       • Lyrics change: Every ${formatInterval(DEFAULT_CONFIG.lyricInterval)}
+
+      Controls:
+      • Space: Pause/Resume
+      • q: Quit
+
       ${SETTINGS_SEPARATOR}
-      Starting in 3 seconds...
+      Starting...
     `);
 
-    await new Promise(resolve => setTimeout(resolve, 3000));
+    await new Promise(resolve => setTimeout(resolve, 1800));
     return DEFAULT_CONFIG;
   }
 
   const duration = await select<DurationOption>({
     message: '⏱ Choose your focus session duration',
     options: [
-      { value: 25, label: '🍅 Pomodoro (25 minutes)' },
-      { value: 45, label: '🎯 Focus Block (45 minutes)' },
-      { value: 60, label: '🌊 Deep Work (60 minutes)' },
+      { value: 25, label: '25 minutes' },
+      { value: 45, label: '45 minutes' },
+      { value: 60, label: '60 minutes' },
       { value: 'custom', label: '✨ Custom duration' },
     ],
   });
@@ -78,9 +84,9 @@ export const getTimerConfig = async (): Promise<TimerConfig> => {
   const interval = await select<IntervalOption>({
     message: '🎵 How often should lyrics change?',
     options: [
-      { value: 15, label: '🚀 Frequent (15 seconds)' },
-      { value: 30, label: '⚡️ Regular (30 seconds)' },
-      { value: 60, label: '🌟 Relaxed (60 seconds)' },
+      { value: 15, label: '15 seconds' },
+      { value: 30, label: '30 seconds' },
+      { value: 60, label: '60 seconds' },
       { value: 'custom', label: '✨ Custom interval' },
     ],
   });
@@ -118,11 +124,16 @@ export const getTimerConfig = async (): Promise<TimerConfig> => {
     Session configured:
     • Duration: ${formatDuration(finalDuration)}
     • Lyrics change: Every ${formatInterval(finalInterval)}
+
+    Controls:
+    • Space: Pause/Resume
+    • q: Quit
+
     ${SETTINGS_SEPARATOR}
-    Starting in 3 seconds...
+    Starting...
   `);
 
-  await new Promise(resolve => setTimeout(resolve, 3000));
+  await new Promise(resolve => setTimeout(resolve, 1800));
 
   return {
     ...DEFAULT_CONFIG,

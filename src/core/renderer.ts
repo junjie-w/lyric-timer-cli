@@ -16,8 +16,8 @@ export const renderTimer = (
   const consoleWidth = process.stdout.columns || 80;
 
   console.log('');
-  console.log(chalk.blue('🎵 LyricTimer'));
-  console.log(chalk.dim('✨  A gentle companion for your focus time 🌟'));
+  console.log(chalk.blue('🎵 LyricTimer'));  
+  console.log(chalk.dim('✨ A gentle companion for your focus time 💫'));
   console.log('');
 
   console.log(rightAlign(chalk.dim(SEPARATOR), consoleWidth));
@@ -41,15 +41,13 @@ export const renderTimer = (
   if (message) {
     console.log(chalk.dim(message));
   } else if (config.isPaused) {
-    console.log(chalk.green('⏸  Timer paused...'));
+    console.log(chalk.dim('⏸  Timer paused...'));
   }
 };
 
 export const showExitMessage = (): void => {
   console.clear();
-  console.log(chalk.blue('\n🌟 Thank you for using LyricTimer'));
-  console.log(chalk.dim('Every focused second shapes your story'));
-  console.log(chalk.dim('Your dedication lights up the world'));
+  console.log(chalk.blue('\nThank you for using LyricTimer 💫'));
   console.log(chalk.dim('\nSee you on your next adventure ✨\n'));
   process.exit(0);
 };
