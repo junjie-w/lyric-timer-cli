@@ -1,7 +1,7 @@
 {
   "name": "@junjie-wu/lyric-timer-cli",
   "version": "1.1.1",
-  "description": "Timer CLI available as a Docker image, NPM package, and standalone executable.",
+  "description": "Command-line focus timer, available as a Docker image, NPM package, and standalone executable.",
   "author": "Junjie Wu",
   "license": "MIT",
   "type": "module",
@@ -50,7 +50,11 @@
     "prepare": "husky",
     "build:exe": "ncc build src/bin/lyric-timer.ts -o executables --minify",
     "build:exe:compress": "npm run build:exe && npm run compress:executables",
-    "compress:executables": "node scripts/compress-executables.js"
+    "compress:executables": "node scripts/compress-executables.js",
+    "start:built": "./executables/index.js",
+    "start:mac-arm": "node scripts/run-mac-arm.js",
+    "start:mac-intel": "node scripts/run-mac-intel.js",
+    "start:linux": "node scripts/run-linux.js"
   },
   "keywords": [
     "cli",
