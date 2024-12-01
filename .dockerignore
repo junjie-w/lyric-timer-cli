@@ -1,0 +1,11 @@
+node_modules/
+dist/
+coverage/
+executables/
+.git/
+.github/
+.husky/
+*.log
+.env*
+.eslintcache
+npm-debug.log*
