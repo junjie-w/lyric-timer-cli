@@ -1,3 +1,17 @@
+# [1.1.0](https://github.com/junjie-w/lyric-timer-cli/compare/v1.0.0...v1.1.0) (2024-12-01)
+
+
+### Bug Fixes
+
+* fix docker image link in readme ([dbccd0d](https://github.com/junjie-w/lyric-timer-cli/commit/dbccd0d697012315d00a72c6a7c4b6f46ab9bd3e))
+* fix release workflow ([e79fe4c](https://github.com/junjie-w/lyric-timer-cli/commit/e79fe4cbb66755a266b8464156bfb0a400f4c4c4))
+* update permissions for dry-run release ([20e4d2f](https://github.com/junjie-w/lyric-timer-cli/commit/20e4d2fd38ddfa0ffe3b1f0ecaf49de121ba9952))
+
+
+### Features
+
+* add test release job to ci workflow ([74833c4](https://github.com/junjie-w/lyric-timer-cli/commit/74833c442e24dbaa3bf962321c6218b84a3dfcb5))
+
 # 1.0.0 (2024-12-01)
 
 
