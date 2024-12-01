@@ -8,9 +8,9 @@
 [![Chalk](https://img.shields.io/badge/Chalk-CLI_Styling-pink?logo=node.js)](https://github.com/chalk/chalk)
 [![Clack](https://img.shields.io/badge/@clack-CLI_Prompts-black)](https://github.com/natemoo-re/clack)
 
-A command-line focus timer, available as a [Docker image](https://hub.docker.com/r/junjiewu0/lyric-timer-cli) for containerized usage, an [NPM package](https://www.npmjs.com/package/@junjie-wu/lyric-timer-cli) for both CLI usage and library integration, and a standalone execuatble (available in the [releases](https://github.com/junjie-w/lyric-timer-cli/releases) page).
+A command-line focus timer, available as a [Docker image](https://hub.docker.com/r/junjiewu0/lyric-timer-cli) for containerized usage, an [NPM package](https://www.npmjs.com/package/@junjie-wu/lyric-timer-cli) for both CLI usage and library integration, and as platform-specific executables.
 
-![lyric-timer-demo](https://github.com/junjie-w/lyric-timer-cli/raw/main/.github/assets/lyric-timer-demo.png)
+![lyric-timer-cli](https://github.com/junjie-w/lyric-timer-cli/raw/main/.github/assets/lyric-timer-demo.png)
 
 ## ⭐ Quick Start
 
@@ -67,7 +67,7 @@ await createTimer({
 });
 ```
 
-### 🧪 Standalone Executable
+### 🧪 Executables
 
 #### Running Locally with Node.js
 
@@ -96,9 +96,6 @@ npm run start:linux      # For Linux
 # 2. Extract using 7-Zip, WinRAR, or similar tool
 # 3. Run the extracted lyric-timer-win-x64.exe
 ```
-
-#### Download Pre-built Binary
-Download the pre-built binary from the [releases page](https://github.com/junjie-w/lyric-timer-cli/releases).
 
 ### 📋 Examples
 For working examples, check out the [examples](https://github.com/junjie-w/lyric-timer-cli/tree/main/examples) directory:
