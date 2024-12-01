@@ -1,0 +1,90 @@
+{
+  "name": "@junjie-wu/lyric-timer-cli",
+  "version": "1.0.0",
+  "description": "A gentle focus timer with lyrics for your terminal",
+  "author": "Junjie Wu",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/src/index.js",
+  "types": "./dist/src/index.d.ts",
+  "bin": {
+    "lyric-timer": "./dist/src/bin/lyric-timer.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/junjie-w/lyric-timer-cli.git"
+  },
+  "homepage": "https://github.com/junjie-w/lyric-timer-cli#readme",
+  "bugs": {
+    "url": "https://github.com/junjie-w/lyric-timer-cli/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "dev": "tsx --watch-preserve-output src/cli/index.ts",
+    "build": "tsc",
+    "start": "node dist/src/cli/index.js",
+    "start:build": "npm run build && npm start",
+    "clean": "rm -rf dist",
+    "prebuild": "npm run clean",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "test:ui": "vitest --ui",
+    "lint": "eslint . --fix",
+    "lint:check": "eslint .",
+    "type-check": "tsc --noEmit",
+    "docker:build": "docker build -t lyric-timer .",
+    "docker:run": "docker run -it --name lyric-timer -e TERM=xterm-256color lyric-timer",
+    "docker:stop": "docker stop lyric-timer || true",
+    "docker:logs": "docker logs lyric-timer",
+    "docker:rmi": "docker rmi lyric-timer || true",
+    "docker:rm": "docker rm -f lyric-timer || true",
+    "docker:clean": "npm run docker:rm && npm run docker:rmi",
+    "prepublishOnly": "npm run build",
+    "prepare": "husky",
+    "build:exe": "ncc build src/bin/lyric-timer.ts -o executables --minify",
+    "build:exe:compress": "npm run build:exe && npm run compress:executables",
+    "compress:executables": "node scripts/compress-executables.js"
+  },
+  "keywords": [
+    "cli",
+    "timer",
+    "focus",
+    "productivity",
+    "lyrics",
+    "pomodoro"
+  ],
+  "dependencies": {
+    "@clack/prompts": "^0.8.2",
+    "chalk": "^5.3.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.6.0",
+    "@commitlint/config-conventional": "^19.6.0",
+    "@eslint/js": "^8.56.0",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@types/gradient-string": "^1.1.6",
+    "@types/node": "^22.9.3",
+    "@types/yargs": "^17.0.32",
+    "@typescript-eslint/eslint-plugin": "^8.10.0",
+    "@vercel/ncc": "^0.38.3",
+    "@vitest/coverage-v8": "^2.1.6",
+    "eslint": "^9.10.0",
+    "eslint-plugin-import": "^2.30.0",
+    "globals": "^14.0.0",
+    "husky": "^9.1.7",
+    "jsonc-eslint-parser": "^2.4.0",
+    "lint-staged": "^15.2.10",
+    "semantic-release": "^24.2.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.6"
+  }
+}

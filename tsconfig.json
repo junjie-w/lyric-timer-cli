@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "esModuleInterop": true,
+    "outDir": "./dist",
+    "rootDir": ".",
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "declarationMap": true,
+  },
+  "include": [
+    "src/**/*",
+    "*.ts",
+    "*.js",
+    "*.cjs",
+    "*.mjs",
+    "*.json"
+  ],
+  "exclude": [
+    "node_modules", 
+    "dist", 
+    "coverage"
+  ]
+}
