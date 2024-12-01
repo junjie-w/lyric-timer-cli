@@ -6,7 +6,7 @@ export const createTimer = async (options: {
 }): Promise<void> => {
   const config = {
     duration: options.duration || 25,
-    lyricInterval: options.lyricInterval || 30,
+    lyricInterval: options.lyricInterval || 15,
     isPaused: false,
   };
   

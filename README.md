@@ -1,12 +1,15 @@
 # LyricTimer CLI
-![lyric-timer-demo](.github/assets/lyric-timer-demo.png)
+![lyric-timer-demo](https://github.com/junjie-w/lyric-timer-cli/raw/main/.github/assets/lyric-timer-demo.png)
 
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/junjie-w/lyric-timer-cli/ci.yml)
+![Vitest](https://img.shields.io/badge/Vitest-enabled-brightgreen?logo=vitest)
 [![semantic-release](https://img.shields.io/badge/semantic--release-enabled-brightgreen?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
 ![ESLint](https://img.shields.io/badge/ESLint-enabled-brightgreen)
 ![Husky](https://img.shields.io/badge/Husky-enabled-brightgreen)
+[![Chalk](https://img.shields.io/badge/Chalk-CLI_Styling-pink?logo=node.js)](https://github.com/chalk/chalk)
+[![Clack](https://img.shields.io/badge/@clack-CLI_Prompts-black)](https://github.com/natemoo-re/clack)
 
-A command-line focus timer, available as a [Docker image](https://hub.docker.com/r/junjiewu0/lyric-timer-cli) for containerized usage, an [NPM package](https://www.npmjs.com/package/@junjie-wu/lyric-timer-cli) for both CLI usage and library integration, and a standalone execuatble.
+A command-line focus timer, available as a [Docker image](https://hub.docker.com/r/junjiewu0/lyric-timer-cli) for containerized usage, an [NPM package](https://www.npmjs.com/package/@junjie-wu/lyric-timer-cli) for both CLI usage and library integration, and a standalone execuatble (available in the [releases](https://github.com/junjie-w/lyric-timer-cli/releases) page).
 
 ## ⭐ Quick Start
 
@@ -63,7 +66,7 @@ await createTimer({
 });
 ```
 
-### Standalone Executable
+### 🧪 Standalone Executable
 
 #### Running Locally with Node.js
 
@@ -97,7 +100,8 @@ npm run start:linux      # For Linux
 Download the pre-built binary from the [releases page](https://github.com/junjie-w/lyric-timer-cli/releases).
 
 ### 📋 Examples
-For complete working examples of all usage methods, check out the [examples](https://github.com/junjie-w/lyric-timer-cli/tree/main/examples) directory:
+For working examples, check out the [examples](https://github.com/junjie-w/lyric-timer-cli/tree/main/examples) directory:
+
 ```bash
 git clone https://github.com/junjie-w/lyric-timer-cli.git
 cd lyric-timer-cli/examples
@@ -110,18 +114,21 @@ npm run start:docker  # Docker usage
 npm run start:exe     # Executable usage
 ```
 
-## ⚡ Features
+## 🍄 Features
 
-- 🎵 Inspiring lyrics while you focus
 - ⏱️ Configurable timer duration
 - 🔄 Adjustable lyric change intervals
-- ⌨️ Interactive CLI interface
 - ⏸️ Pause/Resume functionality
-- 🎨 Beautiful terminal output
+- 🎨 Interactive CLI interface (built with [@clack/prompts](https://www.npmjs.com/package/@clack/prompts) and [chalk](https://www.npmjs.com/package/chalk))
 
-## 🛠️ Development
+### Configuration Options
 
-### Setup
+| Option | Type | Default |
+|----------|--------|-------------|
+| `duration` | number | 25 |
+| `lyricInterval` | number | 15 |
+
+## 🛠️ Development 
 
 ```bash
 # Install dependencies
@@ -136,23 +143,9 @@ npm test
 # Build
 npm run build
 
-# Start
+# Run the built application
 npm start
 ```
-
-### Commit Convention
-
-This project follows [Conventional Commits](https://www.conventionalcommits.org/):
-
-```
-<type>[optional scope]: <description>
-
-[optional body]
-
-[optional footer(s)]
-```
-
-Types: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`
 
 ## 🤝 Contributing
 
@@ -161,7 +154,7 @@ Contributions, issues, and feature requests are welcome. Feel free to check [iss
 ## 🚀 Distribution
 
 - NPM Registry: [@junjie-wu/lyric-timer-cli](https://www.npmjs.com/package/@junjie-wu/lyric-timer-cli)
-- Docker Hub: [junjiewu0/lyric-timer](https://hub.docker.com/r/junjiewu0/lyric-timer)
+- Docker Hub: [junjiewu0/lyric-timer](https://hub.docker.com/r/junjiewu0/lyric-timer-cli)
 - Standalone executables are available in the [releases](https://github.com/junjie-w/lyric-timer-cli/releases) page
 
 ## 📄 License
