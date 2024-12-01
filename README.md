@@ -16,7 +16,7 @@ A command-line focus timer, available as a [Docker image](https://hub.docker.com
 
 ```bash
 # Using Docker
-docker run -it --rm junjiewu0/lyric-timer
+docker run -it --rm junjiewu0/lyric-timer-cli
 
 # Using NPM (with CLI)
 npx @junjie-wu/lyric-timer-cli
@@ -152,7 +152,7 @@ Contributions, issues, and feature requests are welcome. Feel free to check [iss
 ## 🚀 Distribution
 
 - NPM Registry: [@junjie-wu/lyric-timer-cli](https://www.npmjs.com/package/@junjie-wu/lyric-timer-cli)
-- Docker Hub: [junjiewu0/lyric-timer](https://hub.docker.com/r/junjiewu0/lyric-timer-cli)
+- Docker Hub: [junjiewu0/lyric-timer-cli](https://hub.docker.com/r/junjiewu0/lyric-timer-cli)
 - Standalone executables are available in the [releases](https://github.com/junjie-w/lyric-timer-cli/releases) page
 
 ## 📄 License
