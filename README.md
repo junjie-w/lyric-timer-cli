@@ -1,4 +1,5 @@
 # LyricTimer CLI
+![lyric-timer-demo](.github/assets/lyric-timer-demo.png)
 
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/junjie-w/lyric-timer-cli)
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/junjie-w/lyric-timer-cli/quality-checks.yml)
@@ -63,7 +64,7 @@ docker run -it --rm lyric-timer
 ```
 
 ### 📋 Examples
-For complete working examples of all usage methods, check out the [examples](./examples) directory:
+For complete working examples of all usage methods, check out the [examples](https://github.com/junjie-w/lyric-timer-cli/tree/main/examples) directory:
 ```bash
 git clone https://github.com/junjie-w/lyric-timer-cli.git
 cd lyric-timer-cli/examples

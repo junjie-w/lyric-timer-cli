@@ -17,7 +17,7 @@ export const renderTimer = (
 
   console.log('');
   console.log(chalk.blue('🎵 LyricTimer'));
-  console.log(chalk.dim('✨ Your mindful moment starts now 🌟'));
+  console.log(chalk.dim('✨  A gentle companion for your focus time 🌟'));
   console.log('');
 
   console.log(rightAlign(chalk.dim(SEPARATOR), consoleWidth));
