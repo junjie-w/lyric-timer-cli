@@ -46,7 +46,7 @@ export const startTimer = async (
     
     if (key === ' ') {
       config.isPaused = !config.isPaused;
-      statusMessage = config.isPaused ? '⏸  Timer paused...' : '▶️  Timer resumed!';
+      statusMessage = config.isPaused ? '⏸  Timer paused...' : chalk.green('▶️  Timer resumed!');
     }
   };
 

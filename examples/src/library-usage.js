@@ -3,12 +3,12 @@ import { createTimer } from '@junjie-wu/lyric-timer-cli';
 console.log(`
 🎵 LyricTimer Library Example
 ============================
-Starting a 2-minute focus session with 15-second lyric intervals...
+Starting a 20-minute focus session with 15-second lyric intervals...
 `);
 
 try {
   await createTimer({
-    duration: 2,
+    duration: 20,
     lyricInterval: 15,
   });
 } catch (error) {
