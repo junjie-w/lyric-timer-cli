@@ -1,6 +1,6 @@
 # LyricTimer CLI Examples
 
-Examples of using [LyricTimer CLI](https://github.com/junjie-w/lyric-timer-cli) via [Docker image](https://hub.docker.com/r/junjiewu0/lyric-timer-cli), [NPM package](https://www.npmjs.com/package/@junjie-wu/lyric-timer-cli), and standalone executable.
+Examples of using [LyricTimer CLI](https://github.com/junjie-w/lyric-timer-cli) via [Docker image](https://hub.docker.com/r/junjiewu0/lyric-timer-cli), [NPM package](https://www.npmjs.com/package/@junjie-wu/lyric-timer-cli), and executables.
 
 ## 🐳 Docker Usage
 

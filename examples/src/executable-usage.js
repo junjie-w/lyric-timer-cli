@@ -10,7 +10,7 @@ const EXECUTABLE_PATH = join(ROOT_DIR, 'executables', 'index.js');
 console.log(`
 📦 LyricTimer Executable Example
 ==============================
-Starting timer using standalone executable...
+Starting LyricTimer using standalone executable...
 `);
 
 async function buildExecutable() {
@@ -20,7 +20,7 @@ async function buildExecutable() {
       stdio: 'inherit',
       cwd: ROOT_DIR,
     });
-    console.log('\nBuild complete! Starting timer...\n');
+    console.log('\nBuild complete! Starting LyricTimer...\n');
   } catch (error) {
     console.error('\n❌ Build failed:', error.message);
     process.exit(1);
