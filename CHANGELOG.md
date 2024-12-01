@@ -1,3 +1,18 @@
+# [1.2.0](https://github.com/junjie-w/lyric-timer-cli/compare/v1.1.1...v1.2.0) (2024-12-01)
+
+
+### Bug Fixes
+
+* correct docker image name ([478e360](https://github.com/junjie-w/lyric-timer-cli/commit/478e3601440b9f2c3887bafc82f17ab979a6d890))
+* update readme ([4089aa2](https://github.com/junjie-w/lyric-timer-cli/commit/4089aa2475c7b0ae54aae3e9da66e791fc3ea7ed))
+
+
+### Features
+
+* add executable build to release workflow ([32d2782](https://github.com/junjie-w/lyric-timer-cli/commit/32d27829af05e94efcf06b88183840381565dfef))
+* add platform-specific scripts for running executables ([708a9ad](https://github.com/junjie-w/lyric-timer-cli/commit/708a9ad9d22e821ba0d05e62ef23d0b949288ab3))
+* improve timer renderer implementation ([422a57e](https://github.com/junjie-w/lyric-timer-cli/commit/422a57e1803c58a3143ff221ace4a575317feae6))
+
 ## [1.1.1](https://github.com/junjie-w/lyric-timer-cli/compare/v1.1.0...v1.1.1) (2024-12-01)
 
 
