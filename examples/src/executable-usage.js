@@ -1,8 +1,11 @@
 import { execSync } from 'child_process';
-import { dirname } from 'path';
+import { existsSync } from 'fs';
+import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
+const ROOT_DIR = join(__dirname, '..', '..');
+const EXECUTABLE_PATH = join(ROOT_DIR, 'executables', 'index.js');
 
 console.log(`
 📦 LyricTimer Executable Example
@@ -10,26 +13,32 @@ console.log(`
 Starting timer using standalone executable...
 `);
 
+async function buildExecutable() {
+  console.log('Executable not found. Building it now...\n');
+  try {
+    execSync('npm run build:exe', {
+      stdio: 'inherit',
+      cwd: ROOT_DIR,
+    });
+    console.log('\nBuild complete! Starting timer...\n');
+  } catch (error) {
+    console.error('\n❌ Build failed:', error.message);
+    process.exit(1);
+  }
+}
+
 try {
-  console.log('Running standalone executable...\n');
-  
-  execSync('node ../../executables/index.js', {
+  if (!existsSync(EXECUTABLE_PATH)) {
+    await buildExecutable();
+  }
+
+  execSync(`node ${EXECUTABLE_PATH}`, {
     stdio: 'inherit',
     cwd: __dirname,
   });
 } catch (error) {
   console.error('\n❌ Error:', error.message);
-  
-  console.log(`
-Troubleshooting:
-1. Make sure you've built the executable:
-   cd ..
-   npm run build:executables
-
-2. Try running the executable directly:
-   node ../../executables/index.js
-
-Note: This example uses the Node.js executable version.
-The compressed distributable can be found in executables/lyric-timer-*.gz
-`);
+  console.log('\nIf the error persists, try rebuilding manually:');
+  console.log('cd ..');
+  console.log('npm run build:exe');
 }
