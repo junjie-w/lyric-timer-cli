@@ -1,8 +1,7 @@
 # LyricTimer CLI
 ![lyric-timer-demo](.github/assets/lyric-timer-demo.png)
 
-![GitHub package.json version](https://img.shields.io/github/package-json/v/junjie-w/lyric-timer-cli)
-![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/junjie-w/lyric-timer-cli/quality-checks.yml)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/junjie-w/lyric-timer-cli/ci.yml)
 ![Node.js](https://img.shields.io/badge/Node.js->=20-brightgreen)
 [![semantic-release](https://img.shields.io/badge/semantic--release-enabled-brightgreen?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
 ![ESLint](https://img.shields.io/badge/ESLint-enabled-brightgreen)
@@ -61,6 +60,25 @@ docker run -it --rm --platform linux/amd64 junjiewu0/lyric-timer
 docker build -t lyric-timer .
 docker run -it --rm lyric-timer
 ```
+
+### Standalone Executables
+
+Download the appropriate version for your platform from the [releases page](https://github.com/junjie-w/lyric-timer-cli/releases).
+
+#### MacOS/Linux:
+```bash
+# Decompress the file
+gunzip lyric-timer-darwin-arm64.gz  # For M1/M2 Macs
+# or
+gunzip lyric-timer-darwin-x64.gz    # For Intel Macs
+# or
+gunzip lyric-timer-linux-x64.gz     # For Linux
+
+# Make it executable
+chmod +x lyric-timer-*
+
+# Run it
+./lyric-timer-*
 
 ### 📋 Examples
 For complete working examples of all usage methods, check out the [examples](https://github.com/junjie-w/lyric-timer-cli/tree/main/examples) directory:
