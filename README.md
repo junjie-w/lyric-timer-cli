@@ -9,7 +9,7 @@
 ![ESLint](https://img.shields.io/badge/ESLint-enabled-brightgreen)
 ![Husky](https://img.shields.io/badge/Husky-enabled-brightgreen)
 
-A gentle focus timer CLI with inspiring lyrics. Available as an [NPM package](https://www.npmjs.com/package/@junjie-wu/lyric-timer-cli) for both CLI usage and library integration, and as a [Docker image](https://hub.docker.com/r/junjiewu0/lyric-timer) for containerized usage.
+A gentle focus timer CLI with inspiring lyrics. Available as an [NPM package](https://www.npmjs.com/package/@junjie-wu/lyric-timer-cli) for both CLI usage and library integration, and as a [Docker image](https://hub.docker.com/r/junjiewu0/lyric-timer-cli) for containerized usage.
 
 ## ⭐ Quick Start
 
