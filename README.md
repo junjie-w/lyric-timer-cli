@@ -1,5 +1,4 @@
 # LyricTimer CLI
-![lyric-timer-demo](https://github.com/junjie-w/lyric-timer-cli/raw/main/.github/assets/lyric-timer-demo.png)
 
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/junjie-w/lyric-timer-cli/ci.yml)
 ![Vitest](https://img.shields.io/badge/Vitest-enabled-brightgreen?logo=vitest)
@@ -10,6 +9,8 @@
 [![Clack](https://img.shields.io/badge/@clack-CLI_Prompts-black)](https://github.com/natemoo-re/clack)
 
 A command-line focus timer, available as a [Docker image](https://hub.docker.com/r/junjiewu0/lyric-timer-cli) for containerized usage, an [NPM package](https://www.npmjs.com/package/@junjie-wu/lyric-timer-cli) for both CLI usage and library integration, and a standalone execuatble (available in the [releases](https://github.com/junjie-w/lyric-timer-cli/releases) page).
+
+![lyric-timer-demo](https://github.com/junjie-w/lyric-timer-cli/raw/main/.github/assets/lyric-timer-demo.png)
 
 ## ⭐ Quick Start
 
