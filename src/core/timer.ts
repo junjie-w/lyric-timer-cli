@@ -1,10 +1,10 @@
 import chalk from 'chalk';
 
-import { DEFAULT_CONFIG, DEFAULT_LYRICS } from './constants.js';
 import { renderTimer, showExitMessage } from './renderer.js';
-import { getRandomLyric } from './utils.js';
+import { DEFAULT_CONFIG, DEFAULT_LYRICS } from '../shared/constants.js';
+import { getRandomLyric } from '../shared/utils.js';
 
-import type { TimerConfig, Lyric } from './types.js';
+import type { TimerConfig, Lyric } from '../shared/types.js';
 
 export const startTimer = async (
   config: TimerConfig = DEFAULT_CONFIG,

@@ -3,6 +3,7 @@
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/junjie-w/lyric-timer-cli/ci.yml)
 [![Clack](https://img.shields.io/badge/@clack-CLI_Prompts-black)](https://github.com/natemoo-re/clack)
 [![Chalk](https://img.shields.io/badge/Chalk-CLI_Styling-pink?logo=node.js)](https://github.com/chalk/chalk)
+[![ncc](https://img.shields.io/badge/ncc-enabled-black?logo=vercel)](https://github.com/vercel/ncc)
 ![Vitest](https://img.shields.io/badge/Vitest-enabled-brightgreen?logo=vitest)
 [![semantic-release](https://img.shields.io/badge/semantic--release-enabled-brightgreen?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
 ![ESLint](https://img.shields.io/badge/ESLint-enabled-brightgreen)

@@ -29,3 +29,6 @@ export const clearScreen = (): void => {
   console.clear();
   cursorTo(process.stdout, 0, 0);
 };
+
+export const formatDuration = (minutes: number): string => `${minutes} ${minutes === 1 ? 'minute' : 'minutes'}`;
+export const formatInterval = (seconds: number): string => `${seconds} ${seconds === 1 ? 'second' : 'seconds'}`;
