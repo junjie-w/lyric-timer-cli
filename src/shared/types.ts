@@ -9,3 +9,6 @@ export interface TimerConfig {
   lyricInterval: number;
   isPaused: boolean;
 }
+
+export type DurationOption = 25 | 45 | 60 | 'custom';
+export type IntervalOption = 15 | 30 | 60 | 'custom';

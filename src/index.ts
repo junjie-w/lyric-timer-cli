@@ -14,4 +14,4 @@ export const createTimer = async (options: {
 };
 
 export { startTimer } from './core/timer.js';
-export type { TimerConfig, Lyric } from './core/types.js';
+export type { TimerConfig, Lyric } from './shared/types.js';

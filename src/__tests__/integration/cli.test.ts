@@ -2,7 +2,7 @@ import * as clackPrompts from '@clack/prompts';
 import { describe, it, expect, vi, beforeEach, afterAll } from 'vitest';
 
 import { getTimerConfig } from '../../cli/configs.js';
-import { DEFAULT_CONFIG } from '../../core/constants.js';
+import { DEFAULT_CONFIG } from '../../shared/constants.js';
 
 interface TextOptions {
   message: string;
