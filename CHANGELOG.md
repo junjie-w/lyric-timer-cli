@@ -1,3 +1,10 @@
+## [1.2.3](https://github.com/junjie-w/lyric-timer-cli/compare/v1.2.2...v1.2.3) (2024-12-03)
+
+
+### Bug Fixes
+
+* refactor file structure ([62966e5](https://github.com/junjie-w/lyric-timer-cli/commit/62966e576f63eb4747591455eeb61972f1a729ad))
+
 ## [1.2.2](https://github.com/junjie-w/lyric-timer-cli/compare/v1.2.1...v1.2.2) (2024-12-01)
 
 

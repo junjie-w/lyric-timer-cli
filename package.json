@@ -1,6 +1,6 @@
 {
   "name": "@junjie-wu/lyric-timer-cli",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "A command-line focus timer available as Docker image, NPM package, and executables.",
   "author": "Junjie Wu",
   "license": "MIT",
