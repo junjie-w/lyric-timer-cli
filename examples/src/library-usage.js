@@ -6,6 +6,8 @@ console.log(`
 Starting a 20-minute focus session with 15-second lyric intervals...
 `);
 
+await new Promise(resolve => setTimeout(resolve, 1000));
+
 try {
   await createTimer({
     duration: 20,

@@ -2,9 +2,9 @@ import { ReadStream } from 'node:tty';
 
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 
-import { DEFAULT_LYRICS } from '../../core/constants.js';
 import * as renderer from '../../core/renderer.js';
 import { startTimer } from '../../core/timer.js';
+import { DEFAULT_LYRICS } from '../../shared/constants.js';
 
 vi.mock('../../core/renderer.js', () => ({
   renderTimer: vi.fn(),
