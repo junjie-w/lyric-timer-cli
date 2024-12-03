@@ -6,11 +6,6 @@ import { startTimer } from '../core/timer.js';
 export const main = async (): Promise<void> => {
   try {
     const config = await getTimerConfig();
-    
-    console.log('\nControls:');
-    console.log(chalk.dim('• Space: Pause/Resume'));
-    console.log(chalk.dim('• q: Quit\n'));
-
     await startTimer(config);
   } catch (error) {
     console.error(chalk.red('\nAn unexpected error occurred:', error));
@@ -28,10 +23,9 @@ process.on('unhandledRejection', (error) => {
   process.exit(1);
 });
 
-if (process.argv[1]?.endsWith('cli/index.ts') || 
-    process.argv[1]?.endsWith('cli/index.js')) {
+if (process.argv[1]?.match(/cli\/index\.(ts|js)$/)) {
   main().catch((error) => {
-    console.error(chalk.red('\nFatal error:', error));
+    console.error(chalk.red('\nUnhandled application error:', error));
     process.exit(1);
   });
 }

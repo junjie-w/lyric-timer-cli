@@ -1,9 +1,9 @@
 import chalk from 'chalk';
 
-import { SEPARATOR, TIME_SEPARATOR_TOP, TIME_SEPARATOR_BOTTOM } from './constants.js';
-import { clearScreen, rightAlign, formatTime } from './utils.js';
+import { SEPARATOR, TIME_SEPARATOR_TOP, TIME_SEPARATOR_BOTTOM } from '../shared/constants.js';
+import { clearScreen, rightAlign, formatTime } from '../shared/utils.js';
 
-import type { Lyric, TimerConfig } from './types.js';
+import type { Lyric, TimerConfig } from '../shared/types.js';
 
 export const renderTimer = (
   remainingSeconds: number,
